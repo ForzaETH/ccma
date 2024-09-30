@@ -1,22 +1,17 @@
-![alt text](./figures/ccma_logo.png "CCMA Logo")
+# Curvature Corrected Moving Average (CCMA)
 
-<div  markdown="1" align="center">
+*"The allure of methods guided solely by data."*—ChatGPT
 
-  `❞The allure of methods guided solely by data.❞—ChatGPT`
+![alt text](./figures/MA_vs_CCMA.gif "Moving Average vs. Curvature Corrected Moving Average Visualization")
 
-</div>
-
-![alt text](./figures/demo.gif "Moving Average vs. Curvature Corrected Moving Average Visualization")
-
-The Curvature Corrected Moving Average (CCMA) is a **model-free**, **general-purpose** smoothing algorithm designed for **2D/3D** paths. It
+The CCMA is a **model-free**, **general-purpose** smoothing algorithm designed for **2D/3D** paths. It
 addresses the phenomenon of the inwards bending phenomenon in curves that commonly occurs with
 conventional moving average filters. The CCMA method employs a **symmetric filtering**.
 However, due to its symmetric approach, it primarily serves as accurate smoothing rather than state estimation.
 
 The implementation offers a user-friendly experience (see minimal working examle), 
 making it remarkably easy to apply filtering to given points represented as a numpy array. 
-Users can effortlessly choose from different kernels, including truncated normal, hanning, 
-uniform, or the sophisticated Pascal's triangle kernel (default).
+Users can effortlessly choose from different kernels, including truncated normal, uniform, or the sophisticated Pascal triangle kernel (default).
 
 Furthermore, the implementation provides different boundary behaviors—padding, wrapping, decreasing filtering width, 
 or using no boundary strategy at all. 
@@ -38,17 +33,6 @@ If you use the CCMA, please consider citing the original [paper](https://ieeexpl
 }
 ```
 
-### Quick Links
-
-+ [Minimal Working Example](#minimal-working-example)
-+ [Installation](#installation)
-+ [HowTo Guide](#howto-guide)
-+ [CCMA for Path Interpolation](#ccma-for-path-interpolation)
-+ [Splines vs. CCMA](#splines-vs-ccma)
-+ [Interactive Example for Better Understanding](#interactive-example-for-better-understanding)
-+ [Further Research Ideas](#further-research-ideas)
-+ [Star History](#star-history)
-
 ### Minimal Working Example
 
 ```python
@@ -66,47 +50,6 @@ noisy_points = points + noise
 ccma = CCMA(w_ma=5, w_cc=3)
 smoothed_points = ccma.filter(noisy_points)
 ```
-
-### Installation 
-
-To effortlessly install CCMA, utilize the following pip command:
-
-```bash
-pip3 install git+https://github.com/UniBwTAS/ccma.git#egg=ccma
-```
-
-or
-
-```bash
-python3 -m pip install git+https://github.com/UniBwTAS/ccma.git#egg=ccma
-```
-
-After a successful installation, ensure the correctness of the setup by following these steps:
-
-1. Open a new terminal window.
-
-2. Launch the Python shell:
-
-    ```python
-    python
-    ```
-
-3. Verify the installation by importing the CCMA module:
-
-    ```python
-    >>> import ccma
-    ```
-
-4. Confirm the version number to ensure a successful installation:
-
-    ```python
-    >>> ccma.__version__
-    "1.0.0"
-    ```
-
-### HowTo Guide
-
-Further information can be found in the [HowTo Guide](./docs/HowTo.md).
 
 ### CCMA for Path Interpolation
 
@@ -146,20 +89,6 @@ An illustrative example can also be found in the list of examples.
 
 ![alt text](./figures/ccma_vs_bspline.png "B-Spline vs. CCMA + B-Spline")
 
-### Interactive Example for Better Understanding
-
-
-The most effective way to learn a new concept is through interaction. 
-That's why we've incorporated an [interactive example](./examples/example_interactive.py) 
-where you can experiment with different kernels and their parameters. 
-Additionally, you have the flexibility to adjust the noise and density of the path. 
-Finally, you can zoom in and move around, 
-facilitating a more profound understanding. 
-We hope you find this tool helpful.
-
-
-![alt text](./figures/interactive_example.gif "Interactive Example")
-
 
 ### Further Research Ideas
 
@@ -172,7 +101,3 @@ In the following, we want to outline a few additional possible research topics r
 + **Generalization for Surfaces**
 + **Reformulation for Time-Series Data**
 + **Data-Driven Kernels**
-
-### Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=UniBwTAS/ccma&type=Date)](https://star-history.com/#UniBwTAS/ccma&Date)
